@@ -382,7 +382,7 @@ int Get_PresentationString(HANDLE hComm)
 {
 	uint8_t Cmd = CMD_Read_PresString;
 	int32_t ret_length = -1;
-	unsigned char PresString[45] = { 0 };
+	unsigned char PresString[64] = { 0 };
 
 	if (SendCmd(hComm, STEVAL_IDI001V1_ADDR, Cmd, 0, NULL) != -1)
 	{
