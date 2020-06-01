@@ -33,13 +33,13 @@
 
 The pre-compiled firmware is based on DataLogExtended project in the firmware package.
 
-Clone this repo or download from <https://github.com/daisukeiot/SensorTile/raw/master/Firmware/pnpdemo_v1.0.bin>
+Clone this repo or download from <https://github.com/daisukeiot/SensorTile/raw/master/Firmware/pnpdemo_v1.1.bin>
 
 ## Flashing Firmware
 
 1. Prepare the firmware  
 
-    - Download the pre-compiled firmware from <https://github.com/daisukeiot/SensorTile/raw/master/Firmware/pnpdemo_v1.0.bin>  
+    - Download the pre-compiled firmware from <https://github.com/daisukeiot/SensorTile/raw/master/Firmware/pnpdemo_v1.1.bin>  
     or
     - Compile your own firmware with STM32CubeIDE + FP-SNS-STBOX1
 
@@ -66,7 +66,7 @@ Clone this repo or download from <https://github.com/daisukeiot/SensorTile/raw/m
     ![Flash_03](media/Programmer_03.png)
 
 1. Browse the firmware file  
-    If you clone this repo, use **pnpdemo_v1.0.bin** in **Firmware** folder
+    If you clone this repo, use **pnpdemo_v1.1.bin** in **Firmware** folder
 
     ![Flash_01](media/Programmer_01.png)
 
