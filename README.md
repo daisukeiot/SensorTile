@@ -33,13 +33,13 @@
 
 The pre-compiled firmware is based on DataLogExtended project in the firmware package.
 
-Clone this repo or download from <https://github.com/daisukeiot/SensorTile/raw/master/Firmware/pnpdemo_v1.1.bin>
+Clone this repo or download from <https://github.com/daisukeiot/SensorTile/raw/master/Firmware/pnpdemo_v1.2.bin>
 
 ## Flashing Firmware
 
 1. Prepare the firmware  
 
-    - Download the pre-compiled firmware from <https://github.com/daisukeiot/SensorTile/raw/master/Firmware/pnpdemo_v1.1.bin>  
+    - Download the pre-compiled firmware from <https://github.com/daisukeiot/SensorTile/raw/master/Firmware/pnpdemo_v1.2.bin>  
     or
     - Compile your own firmware with STM32CubeIDE + FP-SNS-STBOX1
 
@@ -66,7 +66,7 @@ Clone this repo or download from <https://github.com/daisukeiot/SensorTile/raw/m
     ![Flash_03](media/Programmer_03.png)
 
 1. Browse the firmware file  
-    If you clone this repo, use **pnpdemo_v1.1.bin** in **Firmware** folder
+    If you clone this repo, use **pnpdemo_v1.2.bin** in **Firmware** folder
 
     ![Flash_01](media/Programmer_01.png)
 
@@ -103,9 +103,8 @@ SensorTile.Console.exe -c <Serial Port Number>
 ### Example
 
 ```
-C:\Repo\Git\SensorTile\SensorTile-Console\executable>SensorTile.Console.exe -c 3
 Serial Port   : \\.\COM3 Opened
-System Time   : 18:07:01
+System Time   : 2020/06/01 12:09:26
 Sensor String : SensorTile.Box for IoT Plug and Play Demo v1.1
 Sensor init   : Success
 Accelerometer : M6DSOX
@@ -114,16 +113,7 @@ Magnetometer  : S2MDL
 Temperature   : S221
 Humidity      : S221
 Pressure      : S22HH
-Time : 18:07:01.13 : Flag 3f : Pre 1018.0 Pa / Temp 37.6 C / Hum 31.6 % / Acc x  -824 y  -551 z   -50 / Gyro x   -1470 y     910 z   -1190 / Mag x  -30 y  -15 z -223
-Time : 18:07:01.63 : Flag 3f : Pre 1017.9 Pa / Temp 37.6 C / Hum 31.6 % / Acc x  -828 y  -549 z   -45 / Gyro x    -910 y     560 z    -980 / Mag x  -27 y  -33 z -226
-Time : 18:07:02.12 : Flag 3f : Pre 1017.9 Pa / Temp 37.6 C / Hum 31.6 % / Acc x  -829 y  -548 z   -43 / Gyro x    -140 y     210 z    -560 / Mag x  -37 y  -40 z -222
-Time : 18:07:03.09 : Flag 3f : Pre 1017.8 Pa / Temp 37.7 C / Hum 31.5 % / Acc x  -827 y  -548 z   -42 / Gyro x    -280 y     210 z    -630 / Mag x  -34 y  -37 z -223
-Time : 18:07:04.07 : Flag 3f : Pre 1017.9 Pa / Temp 37.6 C / Hum 31.4 % / Acc x  -827 y  -550 z   -43 / Gyro x    -140 y      70 z    -560 / Mag x  -31 y  -39 z -223
-Time : 18:07:05.04 : Flag 3f : Pre 1017.9 Pa / Temp 37.7 C / Hum 31.4 % / Acc x  -827 y  -549 z   -47 / Gyro x     -70 y     140 z    -560 / Mag x  -30 y  -42 z -229
-Time : 18:07:06.02 : Flag 3f : Pre 1017.9 Pa / Temp 37.7 C / Hum 31.3 % / Acc x  -827 y  -550 z   -48 / Gyro x    -210 y     210 z    -630 / Mag x  -22 y  -27 z -226
-Time : 18:07:06.99 : Flag 3f : Pre 1017.9 Pa / Temp 37.7 C / Hum 31.2 % / Acc x  -827 y  -549 z   -46 / Gyro x     -70 y     140 z    -490 / Mag x  -34 y  -28 z -225
-Time : 18:07:07.97 : Flag 3f : Pre 1017.9 Pa / Temp 37.7 C / Hum 31.2 % / Acc x  -827 y  -548 z   -43 / Gyro x    -210 y     140 z    -560 / Mag x  -39 y  -46 z -232
-Time : 18:07:08.94 : Flag 3f : Pre 1017.8 Pa / Temp 37.8 C / Hum 31.1 % / Acc x  -827 y  -549 z   -45 / Gyro x    -140 y     140 z    -560 / Mag x  -34 y  -37 z -229
-Time : 18:07:09.91 : Flag 3f : Pre 1017.9 Pa / Temp 37.8 C / Hum 31.0 % / Acc x  -827 y  -550 z   -46 / Gyro x    -210 y     280 z    -630 / Mag x  -39 y  -25 z -229
-Time : 18:07:10.88 : Flag 3f : Pre 1017.8 Pa / Temp 37.8 C / Hum 31.0 % / Acc x  -828 y  -550 z   -46 / Gyro x     -70 y     210 z    -490 / Mag x  -28 y  -45 z -220
+Time : 20/06/01 12:09:26.08 : Flag 3f : Pre 1019.8 Pa / Temp 28.2 C / Hum 36.3 % / Acc x  -303 y    12 z  -940 / Gyro x    -140 y    -140 z    -630 / Mag x -612 y  -72 z  615
+Time : 20/06/01 12:09:26.58 : Flag 3f : Pre 1019.9 Pa / Temp 28.2 C / Hum 36.3 % / Acc x  -301 y    12 z  -941 / Gyro x    -140 y     210 z    -560 / Mag x -616 y  -73 z  606
+Time : 20/06/01 12:09:27.56 : Flag 3f : Pre 1019.8 Pa / Temp 28.2 C / Hum 36.3 % / Acc x  -301 y    12 z  -940 / Gyro x     -70 y     140 z    -560 / Mag x -622 y  -64 z  619
 ```

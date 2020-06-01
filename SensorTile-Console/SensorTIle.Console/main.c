@@ -83,7 +83,10 @@ void Read_Sensor_Data(HANDLE hComm)
             offset += 4;
         }
 
-        printf("Time : %02d:%02d:%02d.%02d : Flag %02x : Pre %04.1f Pa / Temp %02.1f C / Hum %02.1f %% / Acc x %5d y %5d z %5d / Gyro x %7d y %7d z %7d / Mag x %4d y %4d z %4d\r\n",
+        printf("Time : %02d/%02d/%02d %02d:%02d:%02d.%02d : Flag %02x : Pre %04.1f Pa / Temp %02.1f C / Hum %02.1f %% / Acc x %5d y %5d z %5d / Gyro x %7d y %7d z %7d / Mag x %4d y %4d z %4d\r\n",
+            sensorData.timeStamp.year,
+            sensorData.timeStamp.month,
+            sensorData.timeStamp.day,
             sensorData.timeStamp.hours,
             sensorData.timeStamp.minutes,
             sensorData.timeStamp.seconds,

@@ -28,3 +28,7 @@ Initial Release
 
 - Added Ping
 - Added Get_Sensor_Name
+
+### v.1.2 Firmware/Sample App
+
+- Set RTC Date

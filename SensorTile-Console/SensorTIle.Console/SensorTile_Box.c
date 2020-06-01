@@ -404,18 +404,31 @@ int Send_SetTimeStamp(HANDLE hComm)
 {
 	uint8_t Cmd = CMD_Set_DateTime;
 	int32_t ret_length = -1;
+	uint8_t dayOfWeek;
 
 	SYSTEMTIME sysTime;
-	uint8_t timeData[3];
+	uint8_t timeData[7];
 	GetLocalTime(&sysTime);
 
-	timeData[0] = (uint8_t)sysTime.wHour;
-	timeData[1] = (uint8_t)sysTime.wMinute;
-	timeData[2] = (uint8_t)sysTime.wSecond;
+	if (sysTime.wDayOfWeek == 0)
+	{
+		dayOfWeek = 7;
+	}
+	else {
+		dayOfWeek = sysTime.wDayOfWeek;
+	}
 
-	printf("System Time   : %02d:%02d:%02d\r\n", sysTime.wHour, sysTime.wMinute, sysTime.wSecond);
+	timeData[0] = dayOfWeek;
+	timeData[1] = (uint8_t)(sysTime.wYear - 2000);
+	timeData[2] = (uint8_t)sysTime.wMonth;
+	timeData[3] = (uint8_t)sysTime.wDay;
+	timeData[4] = (uint8_t)sysTime.wHour;
+	timeData[5] = (uint8_t)sysTime.wMinute;
+	timeData[6] = (uint8_t)sysTime.wSecond;
 
-	if (SendCmd(hComm, STEVAL_IDI001V1_ADDR, Cmd, 3, (uint8_t*)&timeData) != -1)
+	printf("System Time   : %02d/%02d/%02d %02d:%02d:%02d\r\n", sysTime.wYear, sysTime.wMonth, sysTime.wDay, sysTime.wHour, sysTime.wMinute, sysTime.wSecond);
+
+	if (SendCmd(hComm, STEVAL_IDI001V1_ADDR, Cmd, 7, (uint8_t*)&timeData) != -1)
 	{
 		ret_length = ReadCmdResponse(hComm, STEVAL_IDI001V1_ADDR, Cmd, sizeof(TMsg), NULL);
 	}
@@ -543,7 +556,7 @@ int Get_Sensor_Name(HANDLE hComm, int iSensor)
 HANDLE InitializeSensorTile(int ComPortNumber)
 {
 	HANDLE hComm = INVALID_HANDLE_VALUE;
-	TCHAR portName[50];
+	TCHAR portName[16];
 	DCB dcbSerialParams = { 0 };
 	COMMTIMEOUTS commTimeOut = { 0 };
 

@@ -78,6 +78,14 @@
 #define SC_GET_SENSOR_LIST           0x14U
 #define SC_SET_SENSOR_INDEX          0x15U
 
+#define RTC_WEEKDAY_MONDAY          ((uint8_t)0x01U)
+#define RTC_WEEKDAY_TUESDAY         ((uint8_t)0x02U)
+#define RTC_WEEKDAY_WEDNESDAY       ((uint8_t)0x03U)
+#define RTC_WEEKDAY_THURSDAY        ((uint8_t)0x04U)
+#define RTC_WEEKDAY_FRIDAY          ((uint8_t)0x05U)
+#define RTC_WEEKDAY_SATURDAY        ((uint8_t)0x06U)
+#define RTC_WEEKDAY_SUNDAY          ((uint8_t)0x07U)
+
 typedef struct {
 	unsigned int Len;
 	unsigned char Data[TMsg_MaxLen];
@@ -100,6 +108,9 @@ typedef struct {
 }SensorData1;
 
 typedef struct {
+	unsigned char year;
+	unsigned char month;
+	unsigned char day;
 	unsigned char hours;
 	unsigned char minutes;
 	unsigned char seconds;
