@@ -349,3 +349,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 SensorTile-Box-Windows/azure-iot-sdk-c/
+pnp-app-windows/azure-iot-sdk-c/
