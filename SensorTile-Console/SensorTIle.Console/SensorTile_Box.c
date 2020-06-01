@@ -390,7 +390,7 @@ int Get_PresentationString(HANDLE hComm)
 
 		if (ret_length > 0)
 		{
-			printf("Presentation String : %s\r\n", PresString);
+			printf("Sensor String : %s\r\n", PresString);
 		}
 	}
 
@@ -413,7 +413,7 @@ int Send_SetTimeStamp(HANDLE hComm)
 	timeData[1] = (uint8_t)sysTime.wMinute;
 	timeData[2] = (uint8_t)sysTime.wSecond;
 
-	printf("System Time %d:%d:%d\r\n", sysTime.wHour, sysTime.wMinute, sysTime.wSecond);
+	printf("System Time   : %02d:%02d:%02d\r\n", sysTime.wHour, sysTime.wMinute, sysTime.wSecond);
 
 	if (SendCmd(hComm, STEVAL_IDI001V1_ADDR, Cmd, 3, (uint8_t*)&timeData) != -1)
 	{
@@ -439,7 +439,7 @@ int Send_Initialize_Sensor(HANDLE hComm, uint32_t* sensorFlag)
 
 		if (resp_ren == sizeof(uint32_t) && enabled_Sensors == *sensorFlag)
 		{
-			printf("Sensor intialization : Success\r\n");
+			printf("Sensor init   : Success\r\n");
 			ret_length = resp_ren;
 		}
 	}
@@ -458,6 +458,77 @@ int Get_Sensor_Data(HANDLE hComm, int BufferLength, SensorData* Buffer)
 	if (SendCmd(hComm, STEVAL_IDI001V1_ADDR, Cmd, 0, NULL) != -1)
 	{
 		ret_length = ReadCmdResponse(hComm, STEVAL_IDI001V1_ADDR, Cmd, BufferLength, (uint8_t*)Buffer);
+	}
+
+	return ret_length;
+}
+
+/********************************************************************************************
+* Send CMD_Ping command
+********************************************************************************************/
+int Send_Ping(HANDLE hComm)
+{
+	uint8_t Cmd = CMD_Ping;
+	int32_t ret_length = -1;
+
+	if (SendCmd(hComm, STEVAL_IDI001V1_ADDR, Cmd, 0, NULL) != -1)
+	{
+		ret_length = ReadCmdResponse(hComm, STEVAL_IDI001V1_ADDR, Cmd, 0, NULL);
+	}
+
+	return ret_length;
+}
+
+
+/********************************************************************************************
+* Send CMD_Sensor + SC_GET_SENSOR_NAME command to read sensor name
+********************************************************************************************/
+int Get_Sensor_Name(HANDLE hComm, int iSensor)
+{
+	uint8_t Cmd = CMD_Sensor;
+	int32_t ret_length = -1;
+	SensorName sensorName = { 0 };
+
+	//Send_Ping(hComm);
+
+	ZeroMemory((void*)&sensorName, sizeof(sensorName));
+	sensorName.sensorCmd = SC_GET_SENSOR_NAME; // SC_GET_SENSOR_LIST;
+	sensorName.sensorid = iSensor;
+
+	if (SendCmd(hComm, STEVAL_IDI001V1_ADDR, Cmd, sizeof(SensorName), &sensorName) != -1)
+	{
+		ret_length = ReadCmdResponse(hComm, STEVAL_IDI001V1_ADDR, Cmd, sizeof(SensorName), (uint8_t*)&sensorName);
+	}
+
+	if (ret_length > 0)
+	{
+		switch (iSensor)
+		{
+		case SC_ACCELEROMETER:
+			printf("Accelerometer : ");
+			break;
+		case SC_GYROSCOPE:
+			printf("Gyroscope     : ");
+			break;
+		case SC_MAGNETOMETER:
+			printf("Magnetometer  : ");
+			break;
+		case SC_TEMPERATURE:
+			printf("Temperature   : ");
+			break;
+		case SC_HUMIDITY:
+			printf("Humidity      : ");
+			break;
+		case SC_PRESSURE:
+			printf("Pressure      : ");
+			break;
+		default:
+			printf("Unknonw       : ");
+			break;
+		}
+
+		printf("%s\r\n", sensorName.name);
+
 	}
 
 	return ret_length;
@@ -494,7 +565,7 @@ HANDLE InitializeSensorTile(int ComPortNumber)
 		goto Error_Return;
 	}
 
-	printf("Serial Port Opened\r\n");
+	printf("Serial Port   : %ws Opened\r\n", portName);
 
 	dcbSerialParams.DCBlength = sizeof(dcbSerialParams);
 
@@ -572,6 +643,13 @@ HANDLE InitializeSensorTile(int ComPortNumber)
 		printf("ERR : Failed to initialize sensors\r\n");
 		goto Error_Return;
 	}
+
+	Get_Sensor_Name(hComm, SC_ACCELEROMETER);
+	Get_Sensor_Name(hComm, SC_GYROSCOPE);
+	Get_Sensor_Name(hComm, SC_MAGNETOMETER);
+	Get_Sensor_Name(hComm, SC_TEMPERATURE);
+	Get_Sensor_Name(hComm, SC_HUMIDITY);
+	Get_Sensor_Name(hComm, SC_PRESSURE);
 
 	return hComm;
 

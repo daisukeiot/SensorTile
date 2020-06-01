@@ -43,15 +43,15 @@ Clone this repo or download from <https://github.com/daisukeiot/SensorTile/raw/m
     or
     - Compile your own firmware with STM32CubeIDE + FP-SNS-STBOX1
 
+1. Launch STM32CubeProgrammer and Open **Erasing & programming** tab
+
+    ![Flash_00](media/Programmer_00.png)
+
 1. Boot Sensor into DFU mode
 
     Hold `Boot` button then connect sensor to the PC with USB cable
 
-1. Launch STM32CubeProgrammer
-
-1. Browse the firmware file
-
-    ![Flash_01](media/Programmer_01.png)
+    ![Sensor_00](media/Sensor_00.png)
 
 1. Make sure STM3CubeProgrammer detects the sensor
 
@@ -64,6 +64,13 @@ Clone this repo or download from <https://github.com/daisukeiot/SensorTile/raw/m
 1. Press `Connect` button to connect to SensorTile.Box
 
     ![Flash_03](media/Programmer_03.png)
+
+1. Browse the firmware file  
+    If you clone this repo, use **pnpdemo_v1.0.bin** in **Firmware** folder
+
+    ![Flash_01](media/Programmer_01.png)
+
+
 
 1. Press "Start Programming` to flash the firmware
 
@@ -95,7 +102,7 @@ SensorTile.Console.exe -c <Serial Port Number>
 
 ### Example
 
-```cmd
+```
 C:\Repo\Git\SensorTile\SensorTile-Console\executable>SensorTile.Console.exe -c 3
 Serial Port Opened
 System Time 14:43:59

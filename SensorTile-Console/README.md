@@ -14,3 +14,17 @@ Run the app with :
 SensorTile.Console.exe -c <Com Port Number>
 ```
 
+## Releases
+
+### v1.0
+
+Initial Release
+
+### v1.1 Firmware
+
+- Added retry while reading sensors data
+
+### v.1.1 Sample App
+
+- Added Ping
+- Added Get_Sensor_Name

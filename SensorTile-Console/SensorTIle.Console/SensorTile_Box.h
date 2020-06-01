@@ -34,28 +34,49 @@
 #define CMD_Enable_Disable_Sensor    0x10U
 #define CMD_Initialize_Sensor        0x11U
 #define CMD_Read_Sensor_Data         0x12U
+#define CMD_Sensor2                  0x13U
 #define CMD_Sensor                   0x50U
 #define CMD_Reply_Add                0x80U
 
 
-#define SENSOR_FLAG_PRESSURE       0x1
-#define SENSOR_FLAG_TEMPERATURE    0x2
-#define SENSOR_FLAG_HUMIDITY       0x4
-#define SENSOR_FLAG_ACCELEROMETER  0x8
-#define SENSOR_FLAG_GYRO           0x10
-#define SENSOR_FLAG_MEGNETOMETER   0x20
+#define SENSOR_FLAG_PRESSURE         0x01U
+#define SENSOR_FLAG_TEMPERATURE      0x02U
+#define SENSOR_FLAG_HUMIDITY         0x04U
+#define SENSOR_FLAG_ACCELEROMETER    0x08U
+#define SENSOR_FLAG_GYRO             0x10U
+#define SENSOR_FLAG_MEGNETOMETER     0x20U
 
 /* Enable sensor masks */
-#define PRESSURE_SENSOR_ENABLED                 0x00000001U
-#define TEMPERATURE_SENSOR_ENABLED              0x00000002U
-#define HUMIDITY_SENSOR_ENABLED                 0x00000004U
-#define UV_SENSOR_ENABLED                       0x00000008U /* for future use */
-#define ACCELEROMETER_SENSOR_ENABLED            0x00000010U
-#define GYROSCOPE_SENSOR_ENABLED                0x00000020U
-#define MAGNETIC_SENSOR_ENABLED                 0x00000040U
-#define INTERRUPTS_ENABLED                      0x00000100U
-#define FSM_ENABLED                             0x00000200U
-#define MLC_ENABLED                             0x00000400U
+#define PRESSURE_SENSOR_ENABLED      0x00000001U
+#define TEMPERATURE_SENSOR_ENABLED   0x00000002U
+#define HUMIDITY_SENSOR_ENABLED      0x00000004U
+#define UV_SENSOR_ENABLED            0x00000008U /* for future use */
+#define ACCELEROMETER_SENSOR_ENABLED 0x00000010U
+#define GYROSCOPE_SENSOR_ENABLED     0x00000020U
+#define MAGNETIC_SENSOR_ENABLED      0x00000040U
+#define INTERRUPTS_ENABLED           0x00000100U
+#define FSM_ENABLED                  0x00000200U
+#define MLC_ENABLED                  0x00000400U
+
+#define SC_ACCELEROMETER             0x01U
+#define SC_GYROSCOPE                 0x02U
+#define SC_MAGNETOMETER              0x03U
+#define SC_TEMPERATURE               0x04U
+#define SC_HUMIDITY                  0x05U
+#define SC_PRESSURE                  0x06U
+#define SC_UV                        0x07U
+
+#define SC_GET_SENSOR_NAME           0x01U
+#define SC_READ_REGISTER             0x02U
+#define SC_WRITE_REGISTER            0x03U
+#define SC_GET_FULL_SCALE_LIST       0x04U
+#define SC_SET_FULL_SCALE            0x05U
+#define SC_GET_ODR_LIST              0x06U
+#define SC_SET_ODR                   0x07U
+#define SC_GET_FULL_SCALE            0x1EU
+#define SC_GET_ODR                   0x1FU
+#define SC_GET_SENSOR_LIST           0x14U
+#define SC_SET_SENSOR_INDEX          0x15U
 
 typedef struct {
 	unsigned int Len;
@@ -91,7 +112,11 @@ typedef struct {
 	unsigned char data[64];
 }SensorData;
 
-
+typedef struct {
+	unsigned char sensorCmd;
+	unsigned char sensorid;
+	unsigned char name[48];
+}SensorName;
 
 HANDLE InitializeSensorTile(int ComPortNumber);
 int Get_Sensor_Data(HANDLE hComm, int BufferLength, SensorData* Buffer);
