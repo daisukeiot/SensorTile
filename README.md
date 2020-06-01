@@ -104,16 +104,26 @@ SensorTile.Console.exe -c <Serial Port Number>
 
 ```
 C:\Repo\Git\SensorTile\SensorTile-Console\executable>SensorTile.Console.exe -c 3
-Serial Port Opened
-System Time 14:43:59
-Presentation String : SensorTile.Box for IoT Plug and Play Demo v1.0
-Sensor initialization : Success
-Flag 3f 14:43:59.02 : Pre 1008.02 Pa / Temp 28.77 C / Hum 41.98 % / Acc -262    4 -959 / Gyro    0  350 -560 / Mag -525 -174  675
-Flag 39 14:43:59.51 : Pre 1007.94 Pa / Temp 28.77 C / Hum 41.98 % / Acc -262    4 -953 / Gyro    0  280 -560 / Mag -532 -171  670
-Flag 3f 14:44:00.01 : Pre 1007.95 Pa / Temp 28.75 C / Hum 41.83 % / Acc -261    2 -952 / Gyro    0  210 -630 / Mag -526 -174  672
-Flag 39 14:44:00.50 : Pre 1007.93 Pa / Temp 28.75 C / Hum 41.83 % / Acc -260    2 -954 / Gyro  -70  280 -560 / Mag -531 -171  675
-Flag 3f 14:44:01.00 : Pre 1007.92 Pa / Temp 28.78 C / Hum 41.70 % / Acc -260    2 -953 / Gyro  -70    0 -560 / Mag -531 -180  675
-Flag 39 14:44:01.50 : Pre 1007.92 Pa / Temp 28.78 C / Hum 41.70 % / Acc -260    3 -953 / Gyro  -70  140 -560 / Mag -531 -177  672
-Flag 3f 14:44:01.99 : Pre 1007.91 Pa / Temp 28.75 C / Hum 41.52 % / Acc -259    3 -954 / Gyro    0  140 -630 / Mag -529 -175  661
-Flag 3b 14:44:02.48 : Pre 1008.01 Pa / Temp 28.80 C / Hum 41.52 % / Acc -259    3 -954 / Gyro  -70  140 -630 / Mag -534 -174  670
+Serial Port   : \\.\COM3 Opened
+System Time   : 18:07:01
+Sensor String : SensorTile.Box for IoT Plug and Play Demo v1.1
+Sensor init   : Success
+Accelerometer : M6DSOX
+Gyroscope     : M6DSOX
+Magnetometer  : S2MDL
+Temperature   : S221
+Humidity      : S221
+Pressure      : S22HH
+Time : 18:07:01.13 : Flag 3f : Pre 1018.0 Pa / Temp 37.6 C / Hum 31.6 % / Acc x  -824 y  -551 z   -50 / Gyro x   -1470 y     910 z   -1190 / Mag x  -30 y  -15 z -223
+Time : 18:07:01.63 : Flag 3f : Pre 1017.9 Pa / Temp 37.6 C / Hum 31.6 % / Acc x  -828 y  -549 z   -45 / Gyro x    -910 y     560 z    -980 / Mag x  -27 y  -33 z -226
+Time : 18:07:02.12 : Flag 3f : Pre 1017.9 Pa / Temp 37.6 C / Hum 31.6 % / Acc x  -829 y  -548 z   -43 / Gyro x    -140 y     210 z    -560 / Mag x  -37 y  -40 z -222
+Time : 18:07:03.09 : Flag 3f : Pre 1017.8 Pa / Temp 37.7 C / Hum 31.5 % / Acc x  -827 y  -548 z   -42 / Gyro x    -280 y     210 z    -630 / Mag x  -34 y  -37 z -223
+Time : 18:07:04.07 : Flag 3f : Pre 1017.9 Pa / Temp 37.6 C / Hum 31.4 % / Acc x  -827 y  -550 z   -43 / Gyro x    -140 y      70 z    -560 / Mag x  -31 y  -39 z -223
+Time : 18:07:05.04 : Flag 3f : Pre 1017.9 Pa / Temp 37.7 C / Hum 31.4 % / Acc x  -827 y  -549 z   -47 / Gyro x     -70 y     140 z    -560 / Mag x  -30 y  -42 z -229
+Time : 18:07:06.02 : Flag 3f : Pre 1017.9 Pa / Temp 37.7 C / Hum 31.3 % / Acc x  -827 y  -550 z   -48 / Gyro x    -210 y     210 z    -630 / Mag x  -22 y  -27 z -226
+Time : 18:07:06.99 : Flag 3f : Pre 1017.9 Pa / Temp 37.7 C / Hum 31.2 % / Acc x  -827 y  -549 z   -46 / Gyro x     -70 y     140 z    -490 / Mag x  -34 y  -28 z -225
+Time : 18:07:07.97 : Flag 3f : Pre 1017.9 Pa / Temp 37.7 C / Hum 31.2 % / Acc x  -827 y  -548 z   -43 / Gyro x    -210 y     140 z    -560 / Mag x  -39 y  -46 z -232
+Time : 18:07:08.94 : Flag 3f : Pre 1017.8 Pa / Temp 37.8 C / Hum 31.1 % / Acc x  -827 y  -549 z   -45 / Gyro x    -140 y     140 z    -560 / Mag x  -34 y  -37 z -229
+Time : 18:07:09.91 : Flag 3f : Pre 1017.9 Pa / Temp 37.8 C / Hum 31.0 % / Acc x  -827 y  -550 z   -46 / Gyro x    -210 y     280 z    -630 / Mag x  -39 y  -25 z -229
+Time : 18:07:10.88 : Flag 3f : Pre 1017.8 Pa / Temp 37.8 C / Hum 31.0 % / Acc x  -828 y  -550 z   -46 / Gyro x     -70 y     210 z    -490 / Mag x  -28 y  -45 z -220
 ```
